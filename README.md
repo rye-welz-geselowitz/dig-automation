@@ -15,8 +15,8 @@ source automation-venv/bin/activate
 ### Install requirements
 pip install -r requirements.txt 
 
-### Run flask app 
-flask run
+### Run flask app  
+PASSWORD=some_password flask run
 
 ### (For testing against Zapier): Run ngrok
 ngrok http http://127.0.0.1:5000
@@ -27,7 +27,12 @@ gunicorn app:app
 ### Sample curl requests:
 
 ``````
-curl -X POST http://127.0.0.1:5000/applications  -H "Content-Type: application/json" --data-raw '{"first_name": "Test", "last_name": "McTest", "mobile": "+15555555555", "email": "test@example.com", "address": "11225", "referred_by": "WIC", "sms_opt_in": "True"}' -u "login:password"
+curl -X POST http://127.0.0.1:5000/applications  -H "Content-Type: application/json" --data-raw '{"first_name": "Test", "last_name": "McTest", "mobile": "+15555555555", "email": "test@example.com", "address": "11225", "referred_by": "WIC", "sms_opt_in": "True"}' -u "brl_fellow:some_password"
+``````
+
+``````
+curl -X POST https://2e4b-71-247-2-201.ngrok-free.app/applications  -H "Content-Type: application/json" --data-raw '{"first_name": "Test", "last_name": "McTest", "mobile": "+15555555555", "email": "test@example.com", "address": "11225", "referred_by": "WIC", "sms_opt_in": "True"}' -u "brl_fellow:some_password"
 ``````
 
 
+https://2e4b-71-247-2-201.ngrok-free.app
