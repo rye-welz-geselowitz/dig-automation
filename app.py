@@ -70,4 +70,3 @@ def post_application():
         return {'error': f'sms_opt_in must be in: {SMS_OPT_IN_OPTIONS.keys()}. Got: {sms_opt_in}'}, 400
     fill_out_form(request.json)
     return {'result': 'success'}, 201
-
