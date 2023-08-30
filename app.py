@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from time import sleep 
 from flask import Flask, request 
 
-DO_SUBMIT = False 
+DO_SUBMIT = True 
 
 FORM_URL = "https://airtable.com/appazy8IOBmmwawpc/shrg5Yjk1T6YfJp3u?prefill_Organization=recT7faQO1QBuhJp0&prefill_User%20Role=Member&Status=Requested&hide_User%20Role=true&hide_Status=true&hide_Organization=true"
 
