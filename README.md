@@ -5,6 +5,11 @@ The purpose of this service is to help fellows automate moving data from TypeFor
 
 To take advantage of this service, **simply make a copy of [this](https://zapier.com/shared/e3d3b9242c1d94f7785704c75d613eed24713d21) Zap and customize it to your purposes.**
 
+The Zap event should look like this (ask Rye for the password!): 
+
+![sample Zap event](https://github.com/rye-welz-geselowitz/dig-automation/blob/main/zapier_action.png?raw=true)
+
+
 # Running locally
 ### Create virtualenv
 python3 -m venv automation-venv
