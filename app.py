@@ -4,8 +4,11 @@ from selenium.webdriver.common.by import By
 from time import sleep 
 from flask import Flask, request 
 from selenium.webdriver.chrome.options import Options
+import os
+from selenium.webdriver.chrome.service import Service
 
-DO_SUBMIT = True 
+
+DO_SUBMIT = bool(os.environ.get('DO_SUBMIT', 0))
 
 FORM_URL = "https://airtable.com/appazy8IOBmmwawpc/shrg5Yjk1T6YfJp3u?prefill_Organization=recT7faQO1QBuhJp0&prefill_User%20Role=Member&Status=Requested&hide_User%20Role=true&hide_Status=true&hide_Organization=true"
 
@@ -26,9 +29,13 @@ SMS_OPT_IN_OPTIONS = {'True': 'Yes', 'False': 'No'}
 
 
 def fill_out_form(data):
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")  # Run Chrome in headless mode
-    driver = webdriver.Chrome(options=chrome_options)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN", "")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    service = Service(executable_path=os.environ.get("CHROMEDRIVER_PATH"))
+    driver = webdriver.Chrome(service=service, options=chrome_options)
     driver.get(FORM_URL)
     form_fields = driver.find_elements(By.CLASS_NAME, "sharedFormField")
     for form_field in form_fields:
