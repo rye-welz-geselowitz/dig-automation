@@ -6,7 +6,15 @@ from flask import Flask, request
 from selenium.webdriver.chrome.options import Options
 import os
 from selenium.webdriver.chrome.service import Service
+from flask_httpauth import HTTPBasicAuth
+from werkzeug.security import generate_password_hash, check_password_hash
 
+
+app = Flask(__name__)
+auth = HTTPBasicAuth()
+
+
+USERS = {"brl_fellow": generate_password_hash(os.environ.get('PASSWORD'))}
 
 DO_SUBMIT = bool(os.environ.get('DO_SUBMIT', 0))
 
@@ -66,12 +74,17 @@ def fill_out_form(data):
         print('Skipping submit!')
 
 
-app = Flask(__name__)
 
+
+@auth.verify_password
+def verify_password(username, password):
+    if username in USERS and \
+            check_password_hash(USERS.get(username), password):
+        return username
 
 @app.route("/applications", methods=['POST'])
+@auth.login_required
 def post_application():
-    # TODO: maybe authorize request?
     for field in FIELDS_TO_DIG_LABELS.keys():
         if field not in request.json.keys():
             return {'error': f'Missing field: {field}'}, 400

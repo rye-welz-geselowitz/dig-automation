@@ -1,3 +1,4 @@
 selenium==4.11.2
 flask==2.3.3
 gunicorn==21.2.0
+flask-httpauth==4.8.0

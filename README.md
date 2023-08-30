@@ -27,7 +27,7 @@ gunicorn app:app
 ### Sample curl requests:
 
 ``````
-curl -X POST http://127.0.0.1:5000/applications  -H "Content-Type: application/json" --data-raw '{"first_name": "Test", "last_name": "McTest", "mobile": "+15555555555", "email": "test@example.com", "address": "11225", "referred_by": "WIC", "sms_opt_in": "True"}'
+curl -X POST http://127.0.0.1:5000/applications  -H "Content-Type: application/json" --data-raw '{"first_name": "Test", "last_name": "McTest", "mobile": "+15555555555", "email": "test@example.com", "address": "11225", "referred_by": "WIC", "sms_opt_in": "True"}' -u "login:password"
 ``````
 
 
