@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from time import sleep 
 from flask import Flask, request 
+from selenium.webdriver.chrome.options import Options
 
 DO_SUBMIT = True 
 
@@ -25,7 +26,9 @@ SMS_OPT_IN_OPTIONS = {'True': 'Yes', 'False': 'No'}
 
 
 def fill_out_form(data):
-    driver = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")  # Run Chrome in headless mode
+    driver = webdriver.Chrome(options=chrome_options)
     driver.get(FORM_URL)
     form_fields = driver.find_elements(By.CLASS_NAME, "sharedFormField")
     for form_field in form_fields:
