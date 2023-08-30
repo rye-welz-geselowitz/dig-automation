@@ -27,7 +27,8 @@ FIELDS_TO_DIG_LABELS = {
     'email': 'Email',
     'address': 'Address',
     'referred_by': 'Referred by',
-    'sms_opt_in': 'SMS'
+    'sms_opt_in': 'SMS',
+    'digital_signature': 'User Agreement Digital Signature'
 }
 
 DIG_LABELS_TO_FIELDS = {v:k for k,v in FIELDS_TO_DIG_LABELS.items()}
