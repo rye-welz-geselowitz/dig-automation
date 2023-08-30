@@ -7,7 +7,7 @@ To take advantage of this service, **simply make a copy of [this](https://zapier
 
 The Zap event should look like this (ask Rye for the password!): 
 
-![sample Zap event](https://github.com/rye-welz-geselowitz/dig-automation/blob/main/zapier_action.png?raw=true)
+<img src="https://github.com/rye-welz-geselowitz/dig-automation/blob/main/zapier_action.png?raw=true" width="200">
 
 
 # Running locally
