@@ -54,18 +54,10 @@ def fill_out_form(data):
             value = data[DIG_LABELS_TO_FIELDS[key]]
             input_element = form_field.find_element(By.TAG_NAME, 'input')
             input_element.send_keys(value)
-        elif 'sms' in key.lower():
-            cell_container = form_field.find_element(By.CLASS_NAME, 'border-thick') # super brittle lol, find a better way?
-            cell_container.click()
-            options = driver.find_elements(By.CLASS_NAME, "flex-auto") # Also brittle, yikes!
-            clicked = False
-            target_sms_option = SMS_OPT_IN_OPTIONS[data['sms_opt_in']]
-            for option in options:
-                if clicked is False:
-                    if option.text == target_sms_option:
-                        option.click()
-                        clicked = True 
-            assert clicked, f'Did not find SMS option {target_sms_option}'
+        elif 'opt out of sms' in key.lower():
+            if data['sms_opt_in'] != 'True':
+                cell_container = form_field.find_element(By.CLASS_NAME, 'border-thick') # super brittle lol, find a better way?
+                cell_container.click()
 
 
     if DO_SUBMIT:
