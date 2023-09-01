@@ -67,7 +67,6 @@ def fill_out_form(data):
             message_element = WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.CLASS_NAME, "message"))
             )
-            print(message_element)
             assert 'congratulations' in message_element.text.lower()
         else:
             print('Skipping submit!')
