@@ -17,7 +17,7 @@ auth = HTTPBasicAuth()
 
 USERS = {"brl_fellow": generate_password_hash(os.environ.get('PASSWORD'))}
 
-DO_SUBMIT = bool(os.environ.get('DO_SUBMIT', 0))
+DO_SUBMIT = bool(int(os.environ.get('DO_SUBMIT', 0)))
 
 FORM_URL = "https://airtable.com/appazy8IOBmmwawpc/shrg5Yjk1T6YfJp3u?prefill_Organization=recT7faQO1QBuhJp0&prefill_User%20Role=Member&Status=Requested&hide_User%20Role=true&hide_Status=true&hide_Organization=true"
 
