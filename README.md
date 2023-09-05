@@ -8,7 +8,7 @@ To take advantage of this service, create a [Zap](https://zapier.com/) that trig
 <img src="https://github.com/rye-welz-geselowitz/dig-automation/blob/main/screenshots/step_1.png?raw=true" width="200">
 
 For the main "action," use "Code by Zapier" ("Run Python Code). (NOTE: You can alternatively also use Webhook by Zapier if you have a premium Zapier account.) Map the fields from your TypeForm as follows:
-<img src="https://github.com/rye-welz-geselowitz/dig-automation/blob/main/screenshots/step_2.png?raw=true" width="200">
+<img src="https://github.com/rye-welz-geselowitz/dig-automation/blob/main/screenshots/step_2.png?raw=true" width="300">
 
 Then paste in this code snippet:
 ```
@@ -34,11 +34,8 @@ output = [{'result': str(result)}]
 
 
 Finally, set up an SMS notification to alert you of the automation result. This way you'll know if anything goes wrong!
-<img src="https://github.com/rye-welz-geselowitz/dig-automation/blob/main/screenshots/step_3.png?raw=true" width="200">
 
-The Zap event should look like this (ask Rye for the password!): 
-
-<img src="https://github.com/rye-welz-geselowitz/dig-automation/blob/main/zapier_action.png?raw=true" width="200">
+<img src="https://github.com/rye-welz-geselowitz/dig-automation/blob/main/screenshots/step_3.png?raw=true" width="300">
 
 
 # Running locally
