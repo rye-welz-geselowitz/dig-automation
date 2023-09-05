@@ -92,6 +92,6 @@ def post_application():
             return {'error': f'Missing field: {field}'}, 400
     sms_opt_in = request.json['sms_opt_in']
     if sms_opt_in not in SMS_OPT_IN_OPTIONS:
-        return {'error': f'sms_opt_in must be in: {SMS_OPT_IN_OPTIONS.keys()}. Got: {sms_opt_in}'}, 400
+        return {'error': f'sms_opt_in must be in: {SMS_OPT_IN_OPTIONS}. Got: {sms_opt_in}'}, 400
     fill_out_form(request.json)
     return {'result': 'success'}, 201
